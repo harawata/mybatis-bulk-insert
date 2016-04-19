@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.  
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.Mapper50Cols">
+  <insert id="insert">
+    insert into person
+    (id, name1, name2, name3, name4, name5, name6, name7, name8, name9,
+    name10,
+    name11, name12, name13, name14, name15, name16, name17, name18,
+    name19, name20, name21, name22, name23, name24, name25, name26,
+    name27, name28, name29, name30, name31, name32, name33, name34,
+    name35, name36, name37, name38, name39, name40, name41, name42,
+    name43, name44, name45, name46, name47, name48, name49)
+    values
+    (#{id}, #{name1}, #{name2}, #{name3}, #{name4}, #{name5}, #{name6}, #{name7},
+    #{name8}, #{name9}, #{name10}, #{name11}, #{name12}, #{name13},
+    #{name14}, #{name15}, #{name16}, #{name17}, #{name18}, #{name19},
+    #{name20}, #{name21}, #{name22}, #{name23}, #{name24}, #{name25},
+    #{name26}, #{name27}, #{name28}, #{name29}, #{name30}, #{name31},
+    #{name32}, #{name33}, #{name34}, #{name35}, #{name36}, #{name37},
+    #{name38}, #{name39}, #{name40}, #{name41}, #{name42}, #{name43},
+    #{name44}, #{name45}, #{name46}, #{name47}, #{name48}, #{name49})
+  </insert>
+  <insert id="insertMultiRow">
+    insert into person
+    (id, name1, name2, name3, name4, name5, name6,
+    name7, name8, name9, name10, name11, name12, name13, name14, name15,
+    name16, name17, name18, name19, name20, name21, name22, name23,
+    name24, name25, name26, name27, name28, name29, name30, name31,
+    name32, name33, name34, name35, name36, name37, name38, name39,
+    name40, name41, name42, name43, name44, name45, name46, name47,
+    name48, name49)
+    values
+    <foreach item="item" collection="list" separator=",">
+      (#{item.id}, #{item.name1},
+      #{item.name2}, #{item.name3},
+      #{item.name4}, #{item.name5},
+      #{item.name6}, #{item.name7},
+      #{item.name8}, #{item.name9},
+      #{item.name10}, #{item.name11},
+      #{item.name12}, #{item.name13},
+      #{item.name14}, #{item.name15},
+      #{item.name16}, #{item.name17},
+      #{item.name18}, #{item.name19},
+      #{item.name20}, #{item.name21},
+      #{item.name22}, #{item.name23},
+      #{item.name24}, #{item.name25},
+      #{item.name26}, #{item.name27},
+      #{item.name28}, #{item.name29},
+      #{item.name30}, #{item.name31},
+      #{item.name32}, #{item.name33},
+      #{item.name34}, #{item.name35},
+      #{item.name36}, #{item.name37},
+      #{item.name38}, #{item.name39},
+      #{item.name40}, #{item.name41},
+      #{item.name42}, #{item.name43},
+      #{item.name44}, #{item.name45},
+      #{item.name46}, #{item.name47},
+      #{item.name48}, #{item.name49})
+    </foreach>
+  </insert>
+  <insert id="insertMultiRow" databaseId="oracle">
+    insert all
+    <foreach item="item" collection="list">
+      into person
+      (id, name1, name2, name3, name4, name5, name6,
+      name7, name8, name9, name10, name11, name12, name13, name14, name15,
+      name16, name17, name18, name19, name20, name21, name22, name23,
+      name24, name25, name26, name27, name28, name29, name30, name31,
+      name32, name33, name34, name35, name36, name37, name38, name39,
+      name40, name41, name42, name43, name44, name45, name46, name47,
+      name48, name49)
+      values
+      (#{item.id}, #{item.name1},
+      #{item.name2}, #{item.name3},
+      #{item.name4}, #{item.name5},
+      #{item.name6}, #{item.name7},
+      #{item.name8}, #{item.name9},
+      #{item.name10}, #{item.name11},
+      #{item.name12}, #{item.name13},
+      #{item.name14}, #{item.name15},
+      #{item.name16}, #{item.name17},
+      #{item.name18}, #{item.name19},
+      #{item.name20}, #{item.name21},
+      #{item.name22}, #{item.name23},
+      #{item.name24}, #{item.name25},
+      #{item.name26}, #{item.name27},
+      #{item.name28}, #{item.name29},
+      #{item.name30}, #{item.name31},
+      #{item.name32}, #{item.name33},
+      #{item.name34}, #{item.name35},
+      #{item.name36}, #{item.name37},
+      #{item.name38}, #{item.name39},
+      #{item.name40}, #{item.name41},
+      #{item.name42}, #{item.name43},
+      #{item.name44}, #{item.name45},
+      #{item.name46}, #{item.name47},
+      #{item.name48}, #{item.name49})
+    </foreach>
+    select * from dual
+  </insert>
+</mapper>
